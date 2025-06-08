@@ -5,11 +5,13 @@
         "titleBar.activeForeground": "#FFFBFC"
     },
     "spellright.language": [
+        "en",
         "es"
     ],
     "spellright.documentTypes": [
         "latex",
-        "plaintext"
+        "plaintext",
+        "markdown"
     ],
     "spellright.parserByClass": {
         "commonlisp": {

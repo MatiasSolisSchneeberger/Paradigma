@@ -25,7 +25,6 @@ necesarias para poder resolver los siguientes items
 #| b |#
 (setq ultimoDia (list (car (last dias_enero)) (car (last temp_promedio))))
 (format t "~%El último día del mes junto con su temperatura promedio es: ~a" ultimoDia)
-
 #| c |#
 (setq listaUnida (append dias_enero temp_promedio))
 (format t "~%La lista unida es: ~a" listaUnida)
@@ -42,4 +41,3 @@ necesarias para poder resolver los siguientes items
 (setq listaTemperaturas (subseq temp_promedio 1 (1- (length temp_promedio)))) 
 (format t "~%La lista de temperaturas promedios menos la primera y la última es: ~a" listaTemperaturas)
 
-#| (load "C:/Users/lucio.solis/Documents/Nueva carpeta/Matias/Paradigma/TP 2/2-4-TemperaturaPromedioEnero.lsp") |#
