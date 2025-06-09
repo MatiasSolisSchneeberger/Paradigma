@@ -11,11 +11,20 @@
     "spellright.documentTypes": [
         "latex",
         "plaintext",
-        "markdown"
+        "markdown",
+        "commonlisp"
     ],
     "spellright.parserByClass": {
         "commonlisp": {
             "parser": "markdown"
         }
-    }
+    },
+    "cSpell.ignoreWords": [
+        "defun",
+        "listp",
+        "posicion",
+        "pprint",
+        "progn",
+        "setq"
+    ]
 }
