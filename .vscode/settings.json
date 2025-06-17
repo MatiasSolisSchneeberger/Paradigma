@@ -25,6 +25,8 @@
         "posicion",
         "pprint",
         "progn",
-        "setq"
+        "setq",
+        "sublista",
+        "sublistas"
     ]
 }
