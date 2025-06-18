@@ -1,44 +1,55 @@
-(defun ingresar-datos 
-    (let ((lista-corredores))
-        (format t "Ingrese lista (numero-corredor tiempo): ")
-        (setq lista-corredores (read))
+#| Ejercicio N° 1: 1.5 Ptos 
+Desarrollar una función, la que permita que el operador ingrese la lista y llame a las distintas funciones que se solicitan.  |#
 
-        (if (listp lista-corredores)
-            (pprint (SiLlego-NoLlego lista-corredores))
-            (format t "Entrada no válida. Debe ser una lista de corredores."))
-    )
-)
-
-
-(defun SiLlego-NoLlego (lista)
-    (mapcar (lambda (x)
-        (cond 
-            ((and (numberp (cadr x)) (> (cadr x) 0)) "Si Llego")
-            ((and (numberp (cadr x)) (< (cadr x) 0)) "No Llego")
+(defun ingresar-datos ()
+    (let ((lista))
+        (format t "Ingresar una lista: ")
+        (setq lista (read))
+        (if (listp lista)
+            #| funciones |#
         )
-        ) lista
     )
 )
 
-(defun llegaron-todosp (lista)
+#| Ejercicio N° 2: 2.5 Ptos 
+Desarrollar una función, la que recibirá como parámetro la lista ingresada en el punto1; y permita obtener el promedio de los precios de las prendas de las que hay stock.  |#
+(defun promedio (lista)
+    (/ (sumar-lista lista) (contar-elementos lista))
+)
+(defun sumar-lista (lista)
     (cond 
-        ((null lista) t)
-        ((not (numberp (cadr lista))) (llegaron-todosp lista))
-        ((> (cadr lista) 0) (llegaron-todosp (cdr lista)))
-        (t nil)        
+        ((null lista) 0)
+        ((numberp (first lista)) (+ (first lista) (sumar-lista (rest lista))))
+        (t (sumar-lista (rest lista)))
     )
 )
 
-(defun nombres-no-llegaron (lista)
+(defun contar-elementos (lista)
+    (cond 
+        ((null lista) 0)
+        ((numberp (first lista)) (+ 1 (contar-elementos (rest lista))))
+        (t (contar-elementos (rest lista)))
+    )
+)
+
+
+#| Ejercicio N° 3: 2 Ptos 
+Desarrollar una función; la que recibirá como parámetro la lista ingresada en el punto 1; la cual debe devolver una nueva lista formada solamente por los nombres de las prendas cuyo precio sea mayor a los 3000 pesos.  |#
+(defun lista-mayores-3000 (lista)
     (cond 
         ((null lista) nil)
-        ((not (numberp (cadr (car lista)))) (nombres-no-llegaron (cdr lista)))
-        ((< (cadr (car lista)) 0) (cons (caar lista) (nombres-no-llegaron (cdr lista))))
+        ((and (numberp (car lista)) (> (car lista) 3000)) (cons (car lista) (lista-mayores-3000 (cdr lista))))
+        (t (lista-mayores-3000 (cdr lista)))
     )
 )
-#| (cond
-		((null lista) nil)
-		((and (numberp (cadr (car lista))) (< (cadr (car lista)) 0)) (cons (caar lista) (lista-perdedores (cdr lista))))
-		(t (lista-perdedores (cdr lista)))) |#
 
+#| Ejercicio N° 4: 2.5 Ptos 
+Desarrollar una función; utilizando mapcar, la que recibirá como parámetro la lista ingresada en el punto 1, la cual debe devolver una nueva lista conteniendo sublistas. Cada sublista estará formada por el precio de la prenda y un mensaje. 
+    - Para los precios de la lista iguales a 0, se formará una sublista conteniendo el precio y el mensaje "sin-stock". 
+    - Para los precios de la lista menores o iguales a 1000, se formará una sublista conteniendo el precio y el mensaje "barato". 
+    - Para los precios de la lista mayores a 1000, se formará una sublista conteniendo el precio y el mensaje "caro".
+|#
+(defun )
 
+#| Ejercicio N° 5: 1.5 Ptos 
+Definir una función utilizando mapcar, la que a partir de una lista ingresada como parámetro, devuelva una nueva lista cuyos elementos sean el resultado de evaluar uno a uno cada prenda, determinando si la misma posee o no stock. Recordar que una prenda no posee stock si su precio es 0. |#
