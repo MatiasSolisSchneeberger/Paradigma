@@ -7,7 +7,7 @@ Por ejemplo:
 Son 3 comensales, se necesitan entonces 9 porciones, lo que son dos pizzas, que salen $ 120 cada una, lo que implica $240 a dividir entre 3 = $80 cada uno. Ayuda: Recuerde la diapositiva Otras funciones aritméticas  |#
 
 (defun ingresar-datos ()
-    (let (#| (num-amigos) (precio-pizza) |#)
+    (let ((num-amigos) (precio-pizza))
         (format t "Ingresar cantidad de amigos: ")
         (setq num-amigos (read))
         (format t "Ingresar precio de una pizza: ")
