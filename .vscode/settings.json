@@ -28,5 +28,8 @@
         "setq",
         "sublista",
         "sublistas"
+    ],
+    "cSpell.words": [
+        "mapcar"
     ]
 }
