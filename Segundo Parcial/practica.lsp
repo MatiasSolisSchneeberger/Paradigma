@@ -6,7 +6,13 @@ Desarrollar una función, la que permita que el operador ingrese la lista y llam
         (format t "Ingresar una lista: ")
         (setq lista (read))
         (if (listp lista)
-            #| funciones |#
+            (progn
+                (pprint (promedio lista))
+                (pprint (lista-mayores-3000 lista))
+                (pprint (lista-precios lista))
+                (pprint (stockp lista))
+            )
+            (t (format t "La lista ingresada no es válida"))
         )
     )
 )
@@ -49,7 +55,28 @@ Desarrollar una función; utilizando mapcar, la que recibirá como parámetro la
     - Para los precios de la lista menores o iguales a 1000, se formará una sublista conteniendo el precio y el mensaje "barato". 
     - Para los precios de la lista mayores a 1000, se formará una sublista conteniendo el precio y el mensaje "caro".
 |#
-(defun )
+(defun lista-precios (lista)
+    (mapcar 
+        (lambda (x)
+            (cond
+                ((not (numberp x)) nil)
+                ( (= x 0) (list x 'sin-stock))
+                ( (<= x 1000) (list x 'barato))
+                ( (> x 1000) (list x 'caro))
+            )
+        )
+        lista
+    )
+)
 
 #| Ejercicio N° 5: 1.5 Ptos 
 Definir una función utilizando mapcar, la que a partir de una lista ingresada como parámetro, devuelva una nueva lista cuyos elementos sean el resultado de evaluar uno a uno cada prenda, determinando si la misma posee o no stock. Recordar que una prenda no posee stock si su precio es 0. |#
+
+(defun stockp (lista)
+    (mapcar 
+        (lambda (x)
+            (if (and (numberp x) (> x 0)) t nil)
+        )
+        lista
+    )
+)
