@@ -60,3 +60,6 @@ lista: (25 30 29 (25 28 26) 34 20 32 lluvia 31 34 28 27 29 (30 31) 25)
     (/ (sumarNumeros lista) (length lista))
 )
 
+
+
+
